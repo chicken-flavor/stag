@@ -11,13 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/px24dp"
-        android:src="@drawable/loading"
+        tools:background="@color/colorPrimary"
         tools:ignore="ContentDescription" />
 
     <TextView
+        style="@style/TextViewWithoutPadding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/loading"
-        android:textSize="@dimen/px36sp" />
+        android:textSize="@dimen/px36sp"
+        tools:text="@string/app_name" />
 </LinearLayout>

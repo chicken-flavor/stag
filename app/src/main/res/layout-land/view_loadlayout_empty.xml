@@ -9,10 +9,12 @@
         android:layout_width="@dimen/px146dp"
         android:layout_height="@dimen/px146dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/px146dp" />
+        android:layout_marginTop="@dimen/px146dp"
+        tools:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/tv_tip_no_result"
+        style="@style/TextViewWithoutPadding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"

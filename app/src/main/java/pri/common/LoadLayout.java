@@ -1,4 +1,4 @@
-package com.baidu.iov.dueros.film.view;
+package pri.common;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,7 +7,6 @@ import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +14,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.baidu.iov.dueros.film.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -50,8 +47,8 @@ public class LoadLayout extends FrameLayout {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.LoadLayout, 0, 0);
 
         int addableId = a.getResourceId(R.styleable.LoadLayout_load_addable, R.layout.view_loadlayout_addable);
-        int emptyId = R.layout.view_loadlayout_empty;
-        int errorId = R.layout.view_loadlayout_error;
+        int emptyId = a.getResourceId(R.styleable.LoadLayout_load_empty, R.layout.view_loadlayout_empty);
+        int errorId = a.getResourceId(R.styleable.LoadLayout_load_error, R.layout.view_loadlayout_addable);
         int netnotworkId = a.getResourceId(R.styleable.LoadLayout_load_netnotwork, R.layout.view_loadlayout_netnotwork);
         int loadingId = a.getResourceId(R.styleable.LoadLayout_load_loading, R.layout.view_loadlayout_loading);
         int contentId = a.getResourceId(R.styleable.LoadLayout_load_content, R.layout.view_loadlayout_content);
@@ -85,18 +82,6 @@ public class LoadLayout extends FrameLayout {
         for (int i = 0, count = getChildCount(); i < count; i++) {
             View view = getChildAt(i);
             view.setVisibility(GONE);
-        }
-    }
-
-    /**
-     * @throws IllegalStateException do not set load_content if you wanna get a default value
-     */
-    @NonNull
-    public RecyclerView getDefaultContent() {
-        if (mContent instanceof RecyclerView) {
-            return (RecyclerView) mContent;
-        } else {
-            throw new IllegalStateException("you should not set 'load_content' in XML file");
         }
     }
 
@@ -178,7 +163,7 @@ public class LoadLayout extends FrameLayout {
         private int iconId;
         @StringRes
         private int textId;
-        private View.OnClickListener listener;
+        private OnClickListener listener;
 
         public ErrorBuider icon(@DrawableRes int iconId) {
             this.iconId = iconId;
@@ -190,7 +175,7 @@ public class LoadLayout extends FrameLayout {
             return this;
         }
 
-        public ErrorBuider listener(View.OnClickListener listener) {
+        public ErrorBuider listener(OnClickListener listener) {
             this.listener = listener;
             return this;
         }

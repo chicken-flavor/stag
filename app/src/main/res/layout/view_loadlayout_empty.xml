@@ -8,18 +8,18 @@
     <ImageView
         android:layout_width="@dimen/px146dp"
         android:layout_height="@dimen/px146dp"
-        android:layout_marginTop="@dimen/px146dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_caution" />
+        android:layout_marginTop="@dimen/px202dp"
+        tools:background="@color/colorPrimary"
+        tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/tv_tip_no_result"
+        style="@style/TextViewWithoutPadding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginTop="@dimen/px48dp"
         android:layout_marginEnd="0dp"
-        android:gravity="center"
-        android:text="@string/no_search_result"
+        android:gravity="center_horizontal"
         android:textSize="@dimen/px30sp" />
 </LinearLayout>
